@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pump it up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <section class="top-container">
+        <nav class="toggle">
+            <!-- <h1>Features</h1> -->
+            <span></span>
+            <span></span>
+            <span></span>
+        </nav>
+        <ul class="navbar">
+            <li class="nav-list hidden">Pumping Log</li>
+            <li class="nav-list hidden">Total Pumping Time</li>
+            <li class="nav-list hidden">Sleep Tracking</li>
+            <li class="nav-list hidden">Milk Locations</li>
+            <a href="/quotes.html"><li class="nav-list hidden">Motivational Quotes</li></a>
+            <a href="/old-wives-tales.html"><li class="nav-list hidden">Old Wives Tales Disproven</li></a>
+            <a href="/postpartum.html"><li class="nav-list hidden">Postpartum facts</li></a>
+        </ul>
+        <h1 class="title">Pump it up</h1>
+        <div class="display-containers">
+            <div class="amount-eaten-today">
+                <h2 class="display-container-labels">fl oz Eaten Today</h2>
+                    <div class="display-amount-container">
+                        <span class="display-floz-amount">10 fl oz</span>
+                    </div>
+                </div>
+            <div class="amount-stored">
+                <h2 class="display-container-labels">Total fl oz Stored</h2>
+                <div class="display-amount-container"><span class="display-floz-amount">10 fl oz</span></div>
+            </div>
+        </div>
+        <div class="milk-amount-containers">
+            <form action="/addfloz" method="POST">
+                <div class="baby-ate">
+                    <h2 class="container-labels">Baby Just Ate</h2>
+                    <div class="baby-ate-container container-amounts"><input type="text" name="babyAte" placeholder="Input fl oz..." class="floz-amount ate-floz-amount"></input>
+                    <br>
+                    <input type="time" name="timeBabyAte" placeholder="Input time..." class="floz-amount time-floz-amount"></input></div>
+                    <br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+            <form>
+                <div class="amount-pumped">
+                    <h2 class="container-labels">You Just Stored</h2>
+                    <div class="amount-pumped-container container-amounts"><input type="text" name="total-stored" placeholder="Input fl oz..." class="floz-amount"></input></div>
+                    <br>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="top-transition"></div>
+    <section class="middle-container">
+        <h1 class="title-feeding-schedule">Today's Feeding Schedule</h1>
+        <span class="display-date"></span>
+        <div class="clock">
+            <div class="clock-face">
+              <div class="hand hour-hand"></div>
+              <div class="hand minute-hand"></div>
+              <div class="hand second-hand"></div>
+            </div>
+          </div>
+        <% for(let i = 0; i < flozCollection.length; i++) { %>
+        <hr>
+        <div class="daily-logs">
+            <div class="ate-today-log">
+                <h2 class="display-log-titles">Baby Ate</h2>
+                <div class="display-time-border">
+                    <span class="display-feeding-log"><%= flozCollection[i].babyAte %> fl oz</span>
+                </div>
+            </div>
+            <div class="time-today-log">
+                <h2 class="display-log-titles">Time</h2>
+                <div class="display-time-border">
+                    <span class="display-time-log"><%= flozCollection[i].timeBabyAte %></span>
+                </div>
+            </div>
+        </div>
+        <button class="delete-btn">Delete</button>
+        <div class="message"></div>
+        <% } %>
+    </section>
+    <button class="update-btn">Update</button>
+    <script src="/main.js"></script>
+</body>
+</html>
