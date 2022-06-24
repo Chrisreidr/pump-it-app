@@ -81,4 +81,4 @@ MongoClient.connect(dbConnectionStr)
             console.log(`Server running on port ${PORT}`);
         })
     })
-console.log("Let's pump it up.");
+console.log("Pump it up.");
