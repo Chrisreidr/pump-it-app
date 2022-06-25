@@ -70,7 +70,7 @@ MongoClient.connect(dbConnectionStr)
             )
             .then(result => {
                 if(result.deletedCount === 0) {
-                    return res.json('No valid entry to delete')
+                    return res.json('No entry to delete')
                 }
                 res.json('Deleted entry')
             })
